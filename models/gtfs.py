@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from db import Agency, Stop, Line
+from models.db import Agency, Line, Stop
 
 class GtfsModel(BaseModel):
     def getDbModel(self):
@@ -57,12 +57,18 @@ class GtfsStop(BaseModel):
     stop_timezone: str | None = None # Zona horaria de la parada
     
     def getDbModel(self):
+        wheel_boarding = None
+        if self.wheelchair_boarding == 1:
+            wheel_boarding = True
+        elif self.wheelchair_boarding == 2:
+            wheel_boarding = False
+            
         return Stop(
             name=self.stop_name,
             description=self.stop_desc,
             latitude=self.stop_lat,
             longitude=self.stop_lon,
-            wheelchair_boarding=bool(self.wheelchair_boarding) if self.wheelchair_boarding in [1, 2] else None,
+            wheelchair_boarding=wheel_boarding,
             gtfs_stop_id=self.stop_id,
             gtfs_stop_code=self.stop_code,
             gtfs_location_type=self.location_type,
