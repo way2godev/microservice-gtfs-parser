@@ -8,9 +8,9 @@ class GtfsAgency(BaseModel):
     agency_id: str
     agency_name: str
     agency_url: str
+    agency_timezone: str
     agency_lang: str | None = None
     agency_phone: str | None = None
-    agency_fare_url: str | None = None
     agency_email: str | None = None
     
 class GtfsStop(BaseModel):
@@ -42,17 +42,15 @@ class GtfsRoute(BaseModel):
     """
     Routes.txt
     Esta clase representa una linea GTFS. Una linea NO contiene información geografica
+    Para nosotros es una Linea
     """
     route_id: str
-    agency_id: str | None = None
-    route_short_name: str # Nombre corto de la linea, ej: Intercity, Alvia, etc.
+    agency_id: str #! Este campo por lo general es opcional pero lo contaremos como obligatorio
     
-    """
-    Full name of a route. 
-    This name is generally more descriptive than the route_short_name and often includes
-    the route's destination or stop.
-    """
+    # Short name, long name debe haber OBIGATORIAMENTE uno de los dos que no sea None
+    route_short_name: str | None = None # Nombre corto de la linea
     route_long_name: str | None = None
+    
     route_desc: str | None = None # Descripción de la linea
     
     """
@@ -68,7 +66,7 @@ class GtfsRoute(BaseModel):
     11 - Trolleybus. Electric buses that draw power from overhead wires using poles.
     12 - Monorail. Railway in which the track consists of a single rail or a beam.
     """
-    route_type: int 
+    route_type: int
     route_url: str | None = None # URL de la linea
     route_color: str | None = None # Color de la linea
     route_text_color: str | None = None # Color del texto de la linea    
@@ -82,10 +80,10 @@ class GtfsTrip(BaseModel):
     service_id: str # ID del servicio, se corresponde con el ID de un Schedule en nuestra base de datos
     trip_id: str # ID del viaje, es único
 
+    trip_headsign: str | None = None # Cabecera del viaje
     trip_short_name: str | None = None # Nombre corto del viaje
     shape_id: str | None = None # ID de la forma del viaje, se corresponde con el ID de shapes.txt
     
-    wheelchair_accessible: int = 0 # 0: No info, 1: Accesible, 2: No accesible
     bikes_allowed: int = 0 # 0: No info, 1: Permitido, 2: No permitido
     
 class GtfsStopTime(BaseModel):
