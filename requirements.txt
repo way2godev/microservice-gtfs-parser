@@ -1,6 +1,6 @@
-pydantic
 beautifulsoup4
 requests
-polars
-pandas
 lxml
+pydantic==2.7.1
+pandas==2.2.2
+polars==0.20.22
