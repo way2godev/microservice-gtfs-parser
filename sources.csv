@@ -1,0 +1,115 @@
+Feed Name,Provider,Location,feed_url,expired,download_url
+abm-mobilitat,AMB-Mobilitat,"Barcelona, Catalonia, Spain",https://gtfs.pro/en/spain/AMB-Mobilitat/abm-mobilitat,False,https://s3.gtfs.pro/files/uran/improved-gtfs-abm-mobilitat.zip
+barcelona,Ayuntamiento-de-Barcelona,Spain,https://gtfs.pro/en/spain/Ayuntamiento-de-Barcelona/barcelona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-barcelona.zip
+autobuses-interurbanos,Consorcio-de-Transportes-de-Madrid,"Madrid, Spain",https://gtfs.pro/en/spain/Consorcio-de-Transportes-de-Madrid/autobuses-interurbanos,False,https://s3.gtfs.pro/files/uran/improved-gtfs-autobuses-interurbanos.zip
+metro-ligero,Consorcio-de-Transportes-de-Madrid,"Madrid, Spain",https://gtfs.pro/en/spain/Consorcio-de-Transportes-de-Madrid/metro-ligero,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-ligero.zip
+old-emt,Consorcio-de-Transportes-de-Madrid,Spain,https://gtfs.pro/en/spain/Consorcio-de-Transportes-de-Madrid/old-emt,False,https://s3.gtfs.pro/files/uran/improved-gtfs-old-emt.zip
+metrovalencia,Consorcio-de-Transportes-de-Mallorca,"Palma, Balearic Islands, Spain",https://gtfs.pro/en/spain/Consorcio-de-Transportes-de-Mallorca/metrovalencia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metrovalencia.zip
+artxanda-funicular,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/artxanda-funicular,False,https://s3.gtfs.pro/files/uran/improved-gtfs-artxanda-funicular.zip
+bizkaibus,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/bizkaibus,False,https://s3.gtfs.pro/files/uran/improved-gtfs-bizkaibus.zip
+dbus,Eusko-Jaurlaritzaren,"Saint Sebastian, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/dbus,False,https://s3.gtfs.pro/files/uran/improved-gtfs-dbus.zip
+euskotren-eusko,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/euskotren-eusko,False,https://s3.gtfs.pro/files/uran/improved-gtfs-euskotren-eusko.zip
+la-union,Eusko-Jaurlaritzaren,"Basque Country, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/la-union,False,https://s3.gtfs.pro/files/uran/improved-gtfs-la-union.zip
+lurraldebus-arrasate,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-arrasate,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-arrasate.zip
+lurraldebus-auif-urb,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-auif-urb,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-auif-urb.zip
+lurraldebus-eibar,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-eibar,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-eibar.zip
+lurraldebus-ekialdebus,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-ekialdebus,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-ekialdebus.zip
+lurraldebus-euskotren-bus,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-euskotren-bus,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-euskotren-bus.zip
+lurraldebus-gipuzkoana,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-gipuzkoana,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-gipuzkoana.zip
+lurraldebus-goierrialdea,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-goierrialdea,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-goierrialdea.zip
+lurraldebus-hernani,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-hernani,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-hernani.zip
+lurraldebus-lasarte,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-lasarte,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-lasarte.zip
+lurraldebus-oiartzun,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-oiartzun,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-oiartzun.zip
+lurraldebus-pesa,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-pesa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-pesa.zip
+lurraldebus-renteria,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-renteria,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-renteria.zip
+lurraldebus-tolosaldea,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-tolosaldea,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-tolosaldea.zip
+lurraldebus-tsst,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-tsst,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-tsst.zip
+lurraldebus-zarautz,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-zarautz,False,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-zarautz.zip
+transbordador-vizcaya,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/transbordador-vizcaya,False,https://s3.gtfs.pro/files/uran/improved-gtfs-transbordador-vizcaya.zip
+сatalunya,Ferrocarrils,"Catalunya, Spain",https://gtfs.pro/en/spain/Ferrocarrils/%D1%81atalunya,False,https://s3.gtfs.pro/files/uran/improved-gtfs-сatalunya.zip
+valencia,Lappeenranta,"Valencia, Spain",https://gtfs.pro/en/spain/Lappeenranta/valencia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-valencia.zip
+metro-malaga,Metro-de-Malaga,"Malaga, Andalusia, Spain",https://gtfs.pro/en/spain/Metro-de-Malaga/metro-malaga,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-malaga.zip
+metro-valencia,MetroValencia,"Valencia, Spain",https://gtfs.pro/en/spain/MetroValencia/metro-valencia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-valencia.zip
+aecfa-1,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/aecfa-1,False,https://s3.gtfs.pro/files/uran/improved-gtfs-aecfa-1.zip
+aisa-1,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/aisa-1,False,https://s3.gtfs.pro/files/uran/improved-gtfs-aisa-1.zip
+ajuntament-plana,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/ajuntament-plana,False,https://s3.gtfs.pro/files/uran/improved-gtfs-ajuntament-plana.zip
+alavabus,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/alavabus,False,https://s3.gtfs.pro/files/uran/improved-gtfs-alavabus.zip
+alsa-autobuses,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/alsa-autobuses,False,https://s3.gtfs.pro/files/uran/improved-gtfs-alsa-autobuses.zip
+aucorsa,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/aucorsa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-aucorsa.zip
+autobusos-lleida,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/autobusos-lleida,False,https://s3.gtfs.pro/files/uran/improved-gtfs-autobusos-lleida.zip
+autocares-autocorb,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/autocares-autocorb,False,https://s3.gtfs.pro/files/uran/improved-gtfs-autocares-autocorb.zip
+auvasa,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/auvasa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-auvasa.zip
+avanza-grupo,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo.zip
+avanza-grupo-1,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-1,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-1.zip
+avanza-grupo-3,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-3,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-3.zip
+avanza-grupo-4,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-4,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-4.zip
+avanza-grupo-6,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-6,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-6.zip
+avanza-grupo-7,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-7,False,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-7.zip
+ayuntamiento-canaria,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/ayuntamiento-canaria,False,https://s3.gtfs.pro/files/uran/improved-gtfs-ayuntamiento-canaria.zip
+bvanza-grupo,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/bvanza-grupo,False,https://s3.gtfs.pro/files/uran/improved-gtfs-bvanza-grupo.zip
+cantabria,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/cantabria,False,https://s3.gtfs.pro/files/uran/improved-gtfs-cantabria.zip
+consorcio-asturias,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/consorcio-asturias,False,https://s3.gtfs.pro/files/uran/improved-gtfs-consorcio-asturias.zip
+eivissa-tib,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/eivissa-tib,False,https://s3.gtfs.pro/files/uran/improved-gtfs-eivissa-tib.zip
+emt-malaga,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/emt-malaga,False,https://s3.gtfs.pro/files/uran/improved-gtfs-emt-malaga.zip
+emt-tarragona,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/emt-tarragona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-emt-tarragona.zip
+ferry-balearia,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/ferry-balearia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-ferry-balearia.zip
+ferry-fredhlsen,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/ferry-fredhlsen,False,https://s3.gtfs.pro/files/uran/improved-gtfs-ferry-fredhlsen.zip
+generalitat-catalunya,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/generalitat-catalunya,False,https://s3.gtfs.pro/files/uran/improved-gtfs-generalitat-catalunya.zip
+gobierno-navarra,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/gobierno-navarra,False,https://s3.gtfs.pro/files/uran/improved-gtfs-gobierno-navarra.zip
+infotuc,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/infotuc,False,https://s3.gtfs.pro/files/uran/improved-gtfs-infotuc.zip
+menorca-tib,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/menorca-tib,False,https://s3.gtfs.pro/files/uran/improved-gtfs-menorca-tib.zip
+metro-bilbao-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/metro-bilbao-esp,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-bilbao-esp.zip
+metro-de-granada-eps,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/metro-de-granada-eps,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-de-granada-eps.zip
+metro-de-sevilla-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/metro-de-sevilla-esp,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-de-sevilla-esp.zip
+metrotenerife,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/metrotenerife,False,https://s3.gtfs.pro/files/uran/improved-gtfs-metrotenerife.zip
+moventis,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/moventis,False,https://s3.gtfs.pro/files/uran/improved-gtfs-moventis.zip
+moventis-empresa,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/moventis-empresa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-moventis-empresa.zip
+moventis-sarfa,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/moventis-sarfa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-moventis-sarfa.zip
+municipals,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/municipals,False,https://s3.gtfs.pro/files/uran/improved-gtfs-municipals.zip
+municipals-degara,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/municipals-degara,False,https://s3.gtfs.pro/files/uran/improved-gtfs-municipals-degara.zip
+ouigo,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/ouigo,False,https://s3.gtfs.pro/files/uran/improved-gtfs-ouigo.zip
+pujol,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/pujol,False,https://s3.gtfs.pro/files/uran/improved-gtfs-pujol.zip
+renfe-2,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/renfe-2,False,https://s3.gtfs.pro/files/uran/improved-gtfs-renfe-2.zip
+reus-transport,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/reus-transport,False,https://s3.gtfs.pro/files/uran/improved-gtfs-reus-transport.zip
+salamanca-de-transportes-eps,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/salamanca-de-transportes-eps,False,https://s3.gtfs.pro/files/uran/improved-gtfs-salamanca-de-transportes-eps.zip
+samar,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/samar,False,https://s3.gtfs.pro/files/uran/improved-gtfs-samar.zip
+tbh-buruntzaldea,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tbh-buruntzaldea,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tbh-buruntzaldea.zip
+tcc-barcelona,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tcc-barcelona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tcc-barcelona.zip
+titsa-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/titsa-esp,False,https://s3.gtfs.pro/files/uran/improved-gtfs-titsa-esp.zip
+tmb-transports-metropolitans-de-barcelona,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tmb-transports-metropolitans-de-barcelona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tmb-transports-metropolitans-de-barcelona.zip
+transporte-metropolitano-andalucía,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/transporte-metropolitano-andaluc%C3%ADa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-transporte-metropolitano-andalucía.zip
+transporte-urbano-de-zaragoza,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/transporte-urbano-de-zaragoza,False,https://s3.gtfs.pro/files/uran/improved-gtfs-transporte-urbano-de-zaragoza.zip
+transportes-de-murcia,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/transportes-de-murcia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-transportes-de-murcia.zip
+transportes-urbanos-de-santander,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/transportes-urbanos-de-santander,False,https://s3.gtfs.pro/files/uran/improved-gtfs-transportes-urbanos-de-santander.zip
+tranvia-de-murcia,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tranvia-de-murcia,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tranvia-de-murcia.zip
+tranvias-coruna,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tranvias-coruna,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tranvias-coruna.zip
+tranvias-urbanos-de-zaragoza,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tranvias-urbanos-de-zaragoza,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tranvias-urbanos-de-zaragoza.zip
+tussam,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/tussam,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tussam.zip
+unauto,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/unauto,False,https://s3.gtfs.pro/files/uran/improved-gtfs-unauto.zip
+vectalia-movilidad,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/vectalia-movilidad,False,https://s3.gtfs.pro/files/uran/improved-gtfs-vectalia-movilidad.zip
+vectalia-movilidad-2,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/vectalia-movilidad-2,False,https://s3.gtfs.pro/files/uran/improved-gtfs-vectalia-movilidad-2.zip
+vectalia-movilidad-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/vectalia-movilidad-esp,False,https://s3.gtfs.pro/files/uran/improved-gtfs-vectalia-movilidad-esp.zip
+renfe,Renfe-Operadora,"Barcelona, Catalonia, Spain",https://gtfs.pro/en/spain/Renfe-Operadora/renfe,False,https://s3.gtfs.pro/files/uran/improved-gtfs-renfe.zip
+tbs-barcelona,TRAM,"Barcelona, Catalonia, Spain",https://gtfs.pro/en/spain/TRAM/tbs-barcelona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tbs-barcelona.zip
+tbx-barcelona,TRAM,"Barcelona, Catalonia, Spain",https://gtfs.pro/en/spain/TRAM/tbx-barcelona,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tbx-barcelona.zip
+tram-alicante,TRAM-Alicante,"Alicante, Spain",https://gtfs.pro/en/spain/TRAM-Alicante/tram-alicante,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tram-alicante.zip
+a-coruna-es,Transpot-Spain,Spain,https://gtfs.pro/en/spain/Transpot-Spain/a-coruna-es,False,https://s3.gtfs.pro/files/uran/improved-gtfs-a-coruna-es.zip
+tuvisa,Tuvisa,Spain,https://gtfs.pro/en/spain/Tuvisa/tuvisa,False,https://s3.gtfs.pro/files/uran/improved-gtfs-tuvisa.zip
+emt-andalusia,Ayuntamiento-de-Malaga,"Malaga, Spain",https://gtfs.pro/en/spain/Ayuntamiento-de-Malaga/emt-andalusia,True,https://s3.gtfs.pro/files/uran/improved-gtfs-emt-andalusia.zip
+crtm-urban,Consorcio-de-Transportes-de-Madrid,Spain,https://gtfs.pro/en/spain/Consorcio-de-Transportes-de-Madrid/crtm-urban,True,https://s3.gtfs.pro/files/uran/improved-gtfs-crtm-urban.zip
+empresa-municipal-de-transportes,Empresa-Municipal-de-Transportes-de-Madrid,"Madrid, Spain",https://gtfs.pro/en/spain/Empresa-Municipal-de-Transportes-de-Madrid/empresa-municipal-de-transportes,True,https://s3.gtfs.pro/files/uran/improved-gtfs-empresa-municipal-de-transportes.zip
+lurraldebus-areizaga,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-areizaga,True,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-areizaga.zip
+lurraldebus-garayar,Eusko-Jaurlaritzaren,"Bilbao, Spain",https://gtfs.pro/en/spain/Eusko-Jaurlaritzaren/lurraldebus-garayar,True,https://s3.gtfs.pro/files/uran/improved-gtfs-lurraldebus-garayar.zip
+esp-valenciana,Generalitat-Valenciana,Spain,https://gtfs.pro/en/spain/Generalitat-Valenciana/esp-valenciana,True,https://s3.gtfs.pro/files/uran/improved-gtfs-esp-valenciana.zip
+empresa-malaguena,Jose-Florido,"Malaga, Andalusia, Spain",https://gtfs.pro/en/spain/Jose-Florido/empresa-malaguena,True,https://s3.gtfs.pro/files/uran/improved-gtfs-empresa-malaguena.zip
+aisa-2,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/aisa-2,True,https://s3.gtfs.pro/files/uran/improved-gtfs-aisa-2.zip
+autocares-baraza,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/autocares-baraza,True,https://s3.gtfs.pro/files/uran/improved-gtfs-autocares-baraza.zip
+avanza-grupo-2,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/avanza-grupo-2,True,https://s3.gtfs.pro/files/uran/improved-gtfs-avanza-grupo-2.zip
+dos-hermanas,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/dos-hermanas,True,https://s3.gtfs.pro/files/uran/improved-gtfs-dos-hermanas.zip
+interbus,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/interbus,True,https://s3.gtfs.pro/files/uran/improved-gtfs-interbus.zip
+interbus-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/interbus-esp,True,https://s3.gtfs.pro/files/uran/improved-gtfs-interbus-esp.zip
+junta-extremadura,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/junta-extremadura,True,https://s3.gtfs.pro/files/uran/improved-gtfs-junta-extremadura.zip
+metro-de-madrid-esp,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/metro-de-madrid-esp,True,https://s3.gtfs.pro/files/uran/improved-gtfs-metro-de-madrid-esp.zip
+xunta-galicia,Nap-Mitma,Spain,https://gtfs.pro/en/spain/Nap-Mitma/xunta-galicia,True,https://s3.gtfs.pro/files/uran/improved-gtfs-xunta-galicia.zip
+transportesinsularlapalma,Opendatalapalma,Spain,https://gtfs.pro/en/spain/Opendatalapalma/transportesinsularlapalma,True,https://s3.gtfs.pro/files/uran/improved-gtfs-transportesinsularlapalma.zip
+feve,Renfe-Operadora,"Gijon, Asturias, Spain",https://gtfs.pro/en/spain/Renfe-Operadora/feve,True,https://s3.gtfs.pro/files/uran/improved-gtfs-feve.zip

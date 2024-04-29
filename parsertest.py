@@ -1,6 +1,4 @@
 import os
-import random
-import pandas as pd
 from models import Agency, Line
 import polars as pl
 

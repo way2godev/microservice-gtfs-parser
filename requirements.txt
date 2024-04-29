@@ -1,1 +1,6 @@
 pydantic
+beautifulsoup4
+requests
+polars
+pandas
+lxml
