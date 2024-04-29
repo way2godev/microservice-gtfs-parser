@@ -1,6 +1,12 @@
 from pydantic import BaseModel
 
-class GtfsAgency(BaseModel):
+from db import Agency, Stop, Line
+
+class GtfsModel(BaseModel):
+    def getDbModel(self):
+        raise NotImplementedError("This method must be implemented in the child class")
+
+class GtfsAgency(GtfsModel):
     """
     Agency.txt
     Una agencia de transporte público. Ejemplo: Renfe, EMT, etc.
@@ -12,6 +18,18 @@ class GtfsAgency(BaseModel):
     agency_lang: str | None = None
     agency_phone: str | None = None
     agency_email: str | None = None
+    
+    def getDbModel(self):
+        return Agency(
+            name=self.agency_name,
+            gtfs_agency_id=self.agency_id,
+            gtfs_agency_name=self.agency_name,
+            gtfs_agency_url=self.agency_url,
+            gtfs_agency_timezone=self.agency_timezone,
+            gtfs_agency_lang=self.agency_lang,
+            gtfs_agency_phone=self.agency_phone,
+            gtfs_agency_email=self.agency_email
+        )
     
 class GtfsStop(BaseModel):
     """
@@ -37,6 +55,19 @@ class GtfsStop(BaseModel):
     
     wheelchair_boarding: int = 0 # 0: No info, 1: Accesible, 2: No accesible
     stop_timezone: str | None = None # Zona horaria de la parada
+    
+    def getDbModel(self):
+        return Stop(
+            name=self.stop_name,
+            description=self.stop_desc,
+            latitude=self.stop_lat,
+            longitude=self.stop_lon,
+            wheelchair_boarding=bool(self.wheelchair_boarding) if self.wheelchair_boarding in [1, 2] else None,
+            gtfs_stop_id=self.stop_id,
+            gtfs_stop_code=self.stop_code,
+            gtfs_location_type=self.location_type,
+            gtfs_stop_timezone=self.stop_timezone
+        )
     
 class GtfsRoute(BaseModel):
     """
@@ -70,6 +101,20 @@ class GtfsRoute(BaseModel):
     route_url: str | None = None # URL de la linea
     route_color: str | None = None # Color de la linea
     route_text_color: str | None = None # Color del texto de la linea    
+    
+    def getDbModel(self):
+        return Line(
+            name=self.route_long_name if self.route_long_name is not None else self.route_short_name,
+            agency_id= 1, #TODO encontrar la agencia con el ID correspondiente
+            description=self.route_desc,
+            route_type=self.route_type,
+            gtfs_route_id=self.route_id,
+            gtfs_route_short_name=self.route_short_name,
+            gtfs_route_long_name=self.route_long_name,
+            gtfs_route_url=self.route_url,
+            gtfs_route_color=self.route_color,
+            gtfs_route_text_color=self.route_text_color
+        )
     
 class GtfsTrip(BaseModel):
     """
