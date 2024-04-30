@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from models.db import Agency, Line, Stop
+from models.db import Agency, Line, Stop, Schedule
 
 class GtfsModel(BaseModel):
     def getDbModel(self):
@@ -136,6 +136,16 @@ class GtfsTrip(BaseModel):
     
     bikes_allowed: int = 0 # 0: No info, 1: Permitido, 2: No permitido
     
+    def getDbModel(self):
+        return Schedule(
+            name=self.trip_headsign if self.trip_headsign is not None else self.trip_short_name,
+            gtfs_route_id=self.route_id,
+            gtfs_service_id=self.service_id,
+            gtfs_trip_id=self.trip_id,
+            gtfs_trip_short_name=self.trip_short_name,
+            gtfs_bikes_allowed=self.bikes_allowed
+        )
+          
 class GtfsStopTime(BaseModel):
     """
     StopTimes.txt

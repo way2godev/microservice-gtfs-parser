@@ -64,7 +64,14 @@ def parse_source_to_db():
     parsed_routes = DataParser.routes(routes_raw, logger)
     for route in parsed_routes:
         route.save_if_not_exists_and_update_fk()
-
+    
+    schedules_raw = pd.read_csv('./data/trips.csv')
+    logger.info(f'Found {len(schedules_raw)} schedules')
+    parsed_schedules = DataParser.schedules(schedules_raw, logger)
+    for schedule in parsed_schedules:
+        schedule.save_if_not_exists_and_update_fk()
+    logger.info(f'Parsed {len(parsed_schedules)} schedules')
+    
     stops_raw = pd.read_csv('./data/stops.csv')
     logger.info(f'Found {len(stops_raw)} stops')
     parsed_stops = DataParser.stops(stops_raw, logger)

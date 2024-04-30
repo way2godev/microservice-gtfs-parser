@@ -1,5 +1,5 @@
 from pydantic import ValidationError
-from models.gtfs import GtfsStop, GtfsAgency, GtfsRoute
+from models.gtfs import GtfsStop, GtfsAgency, GtfsRoute, GtfsTrip
 import pandas as pd
 
 class DataParser:
@@ -60,6 +60,31 @@ class DataParser:
         return routes_db
     
     @staticmethod
+    def schedules(routes_dataframe, logger):
+        parsed_schedules = []
+        
+        for i, row in routes_dataframe.iterrows():
+            try:
+                schedule = GtfsTrip(
+                    route_id=row['route_id'],
+                    service_id=row['service_id'],
+                    trip_id=row['trip_id'],
+                    trip_headsign=row['trip_headsign'] if not pd.isna(row['trip_headsign']) else None,
+                    shape_id=row['shape_id'] if not pd.isna(row['shape_id']) else None,
+                    bikes_allowed=row['bikes_allowed'] if not pd.isna(row['bikes_allowed']) else 0
+                )
+                parsed_schedules.append(schedule)
+            except ValidationError as exc:
+                logger.error(f'Error parsing schedule {row["trip_id"]}: {exc}')
+                
+        schedules_db = []
+        
+        for schedule in parsed_schedules:
+            schedules_db.append(schedule.getDbModel())
+            
+        return schedules_db
+    
+    @staticmethod
     def agencies(agencies_dataframe, logger):
         parsed_agencies = []
         
@@ -71,7 +96,7 @@ class DataParser:
                     agency_url=row['agency_url'],
                     agency_timezone=row['agency_timezone'],
                     agency_lang=row['agency_lang'] if not pd.isna(row['agency_lang']) else None,
-                    agency_phone=str(int(row['agency_phone'])) if not pd.isna(row['agency_phone']) else None,
+                    agency_phone=str(row['agency_phone']) if not pd.isna(row['agency_phone']) else None,
                     agency_email=row['agency_email'] if not pd.isna(row['agency_email']) else None
                 )
                 parsed_agencies.append(agency)

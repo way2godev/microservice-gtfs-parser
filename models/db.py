@@ -123,3 +123,37 @@ class Line(DbModel):
         else:
             logger.info(f"Line {self.name} already exists in the database")
     
+class Schedule(DbModel):
+    table_name: str = "schedules"
+    name: str
+    gtfs_route_id: str 
+    gtfs_service_id: str
+    gtfs_trip_id: str
+    gtfs_trip_short_name: str | None = None
+    gtfs_bikes_allowed: int | None = None
+    
+    def get_by_gtfs_id(gtfs_trip_id):
+        query = f"SELECT * FROM schedules WHERE gtfs_trip_id LIKE '{gtfs_trip_id}'"
+        db = Connection.get_cursor()
+        db.execute(query)
+        schedule = db.fetchone()
+        db.close()
+        return schedule
+    
+    def save_and_update_fk(self):
+        query = f"""
+        INSERT INTO schedules (name, line_id, gtfs_service_id, gtfs_trip_id, gtfs_trip_short_name, gtfs_bikes_allowed, created_at, updated_at)
+        VALUES (%s, (SELECT id FROM lines WHERE gtfs_route_id LIKE %s), %s, %s, %s, %s, NOW(), NOW())"""
+        db = Connection.get_cursor()
+        db.execute(query, (self.name, self.gtfs_route_id, self.gtfs_service_id, self.gtfs_trip_id, self.gtfs_trip_short_name, self.gtfs_bikes_allowed))
+        db.connection.commit()
+        db.close()
+        
+    def save_if_not_exists_and_update_fk(self):
+        schedule = Schedule.get_by_gtfs_id(self.gtfs_trip_id)
+        if not schedule:
+            logger.info(f"Saving schedule {self.name} ({self.gtfs_trip_id})")
+            self.save_and_update_fk()
+        else:
+            logger.info(f"Schedule {self.name} already exists in the database")
+        
