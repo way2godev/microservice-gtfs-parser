@@ -19,7 +19,7 @@ RUN adduser \
 # Install the dependencies
 COPY requirements.txt . 
 
-RUN  apk add --no-cache postgresql-libs && \
+RUN  apk add --no-cache postgresql-libs curl zip unzip && \
     apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
     pip3 install --no-cache-dir -r requirements.txt && \
     apk --purge del .build-deps
