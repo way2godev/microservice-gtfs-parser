@@ -24,6 +24,8 @@ RUN  apk add --no-cache postgresql-libs curl zip unzip && \
     pip3 install --no-cache-dir -r requirements.txt && \
     apk --purge del .build-deps
 
+RUN chown -R appuser /app && chmod -R 777 /app
+
 # Switch to the non-privileged user to run the application.
 USER appuser
 
