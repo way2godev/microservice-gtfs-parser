@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 FILES_MANDATORY = ['agency', 'routes', 'stops', 'trips', 'stop_times']
 FILES_ALL = ['agency', 'calendar', 'calendar_dates', 'fare_attributes', 'fare_rules', 'feed_info', 'frequencies', 'routes', 'shapes', 'stop_times', 'stops', 'transfers', 'trips']
-total_stop_count = 0
+MAX_WORKERS = 5
 
 logger = Logger.get_logger()
 
@@ -16,6 +16,9 @@ dotenv.load_dotenv()
 
 if not all([os.getenv('DB_HOST'), os.getenv('DB_PORT'), os.getenv('DB_NAME'), os.getenv('DB_USER'), os.getenv('DB_PASSWORD')]):
     logger.error('Missing environment variables')
+    logger.error('Please make sure you have the following environment variables set:')
+    logger.error('DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD')
+    logger.error('Actual values: ', os.getenv('DB_HOST'), os.getenv('DB_PORT'), os.getenv('DB_NAME'), os.getenv('DB_USER'), os.getenv('DB_PASSWORD'))
     exit(1)
 
 Connection(
@@ -48,16 +51,25 @@ def parse_source_to_db():
             else:
                 logger.error(f'File {file}.csv not found in data/ directory')
                 return
+            
+    agencies_raw = pd.read_csv('./data/agency.csv')
+    parsed_agencies = DataParser.agencies(agencies_raw, logger)
+    logger.info(f'Found {len(parsed_agencies)} agencies')
+    for agency in parsed_agencies:
+        agency.save_if_not_exists()
+    logger.info(f'Parsed {len(parsed_agencies)} agencies')
+    
+    routes_raw = pd.read_csv('./data/routes.csv')
+    logger.info(f'Found {len(routes_raw)} routes')
+    parsed_routes = DataParser.routes(routes_raw, logger)
+    for route in parsed_routes:
+        route.save_if_not_exists_and_update_fk()
 
     stops_raw = pd.read_csv('./data/stops.csv')
+    logger.info(f'Found {len(stops_raw)} stops')
     parsed_stops = DataParser.stops(stops_raw, logger)
-    
-    def save_stop(stop):
+    for stop in parsed_stops:
         stop.save_if_not_exists()
-
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        executor.map(save_stop, parsed_stops)
-
     logger.info(f'Parsed {len(parsed_stops)} stops')
 
 def cleanup_data():
@@ -89,6 +101,5 @@ if __name__ == '__main__':
         parse_source_to_db() 
         cleanup_data()
         
-    logger.info(f'Parsed {total_stop_count} stops in total')
     
     

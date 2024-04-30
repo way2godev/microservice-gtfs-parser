@@ -23,7 +23,6 @@ class GtfsAgency(GtfsModel):
         return Agency(
             name=self.agency_name,
             gtfs_agency_id=self.agency_id,
-            gtfs_agency_name=self.agency_name,
             gtfs_agency_url=self.agency_url,
             gtfs_agency_timezone=self.agency_timezone,
             gtfs_agency_lang=self.agency_lang,
@@ -111,12 +110,12 @@ class GtfsRoute(BaseModel):
     def getDbModel(self):
         return Line(
             name=self.route_long_name if self.route_long_name is not None else self.route_short_name,
-            agency_id= 1, #TODO encontrar la agencia con el ID correspondiente
+            gtfs_agency_id=self.agency_id,
             description=self.route_desc,
             route_type=self.route_type,
             gtfs_route_id=self.route_id,
             gtfs_route_short_name=self.route_short_name,
-            gtfs_route_long_name=self.route_long_name,
+            gtfs_route_long_name=self.route_long_name.replace('.-', "'") if self.route_long_name is not None else None,
             gtfs_route_url=self.route_url,
             gtfs_route_color=self.route_color,
             gtfs_route_text_color=self.route_text_color

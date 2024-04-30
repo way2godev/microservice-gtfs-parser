@@ -15,12 +15,40 @@ class Agency(DbModel):
     table_name: str = "agencies"
     name: str
     gtfs_agency_id: str | None = None
-    gtfs_agency_name: str | None = None
     gtfs_agency_url: str | None = None
     gtfs_agency_timezone: str | None = None
     gtfs_agency_lang: str | None = None
     gtfs_agency_phone: str | None = None
     gtfs_agency_email: str | None = None
+    
+    def get_by_gtfs_id(gtfs_agency_id):
+        query = f"SELECT * FROM agencies WHERE gtfs_agency_id LIKE '{gtfs_agency_id}'"
+        db = Connection.get_cursor()
+        db.execute(query)
+        agency = db.fetchone()
+        db.close()
+        return agency
+    
+    def get_id_by_gtfs_id(gtfs_agency_id):
+        agency = Agency.get_by_gtfs_id(gtfs_agency_id)
+        if agency:
+            return agency[0]
+        return None
+    
+    def save(self):
+        query = f"INSERT INTO agencies (name, gtfs_agency_id, gtfs_agency_url, gtfs_agency_timezone, gtfs_agency_lang, gtfs_agency_phone, gtfs_agency_email, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW())"
+        db = Connection.get_cursor()
+        db.execute(query, (self.name, self.gtfs_agency_id, self.gtfs_agency_url, self.gtfs_agency_timezone, self.gtfs_agency_lang, self.gtfs_agency_phone, self.gtfs_agency_email))
+        db.connection.commit()
+        db.close()
+        
+    def save_if_not_exists(self):
+        agency = Agency.get_by_gtfs_id(self.gtfs_agency_id)
+        if not agency:
+            logger.info(f"Saving agency {self.name}")
+            self.save()
+        else:
+            logger.info(f"Agency {self.name} already exists in the database")
     
 class Stop(DbModel):
     table_name: str = "stops"
@@ -60,7 +88,7 @@ class Stop(DbModel):
 class Line(DbModel):
     table_name: str = "lines"
     name: str
-    agency_id: int
+    gtfs_agency_id: str | None = None # Esto no se guarda
     description: str | None = None
     route_type: int | None = None
     gtfs_route_id: str | None = None
@@ -69,3 +97,29 @@ class Line(DbModel):
     gtfs_route_url: str | None = None
     gtfs_route_color: str | None = None
     gtfs_route_text_color: str | None = None
+    
+    def get_by_gtfs_id(gtfs_route_id):
+        query = f"SELECT * FROM lines WHERE gtfs_route_id LIKE '{gtfs_route_id}'"
+        db = Connection.get_cursor()
+        db.execute(query)
+        line = db.fetchone()
+        db.close()
+        return line
+    
+    def save_and_upate_fk(self):
+        query = f"""
+        INSERT INTO lines (name, agency_id, description, route_type, gtfs_route_id, gtfs_route_short_name, gtfs_route_long_name, gtfs_route_url, gtfs_route_color, gtfs_route_text_color, created_at, updated_at) 
+        VALUES (%s, (SELECT id FROM agencies WHERE gtfs_agency_id LIKE %s), %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())"""
+        db = Connection.get_cursor()
+        db.execute(query, (self.name, self.gtfs_agency_id, self.description, self.route_type, self.gtfs_route_id, self.gtfs_route_short_name, self.gtfs_route_long_name, self.gtfs_route_url, self.gtfs_route_color, self.gtfs_route_text_color))
+        db.connection.commit()
+        db.close()
+        
+    def save_if_not_exists_and_update_fk(self):
+        line = Line.get_by_gtfs_id(self.gtfs_route_id)
+        if not line:
+            logger.info(f"Saving line {self.name}")
+            self.save_and_upate_fk()
+        else:
+            logger.info(f"Line {self.name} already exists in the database")
+    
