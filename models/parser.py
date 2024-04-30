@@ -1,5 +1,5 @@
 from pydantic import ValidationError
-from models.gtfs import GtfsStop, GtfsAgency, GtfsRoute, GtfsTrip
+from models.gtfs import GtfsStop, GtfsAgency, GtfsRoute, GtfsTrip, GtfsStopTime
 import pandas as pd
 
 class DataParser:
@@ -108,3 +108,28 @@ class DataParser:
             agencies_db.append(agency.getDbModel())
             
         return agencies_db
+    
+    @staticmethod
+    def stop_times(stop_times_dataframe, logger):
+        parsed_stop_times = []
+        
+        for i, row in stop_times_dataframe.iterrows():
+            try:
+                stop_time = GtfsStopTime(
+                    trip_id=row['trip_id'],
+                    arrival_time=row['arrival_time'],
+                    departure_time=row['departure_time'],
+                    stop_id=row['stop_id'],
+                    stop_sequence=row['stop_sequence'],
+                    shape_dist_traveled=row['shape_dist_traveled'] if not pd.isna(row['shape_dist_traveled']) else None
+                )
+                parsed_stop_times.append(stop_time)
+            except ValidationError as exc:
+                logger.error(f'Error parsing stop time {row["trip_id"]}: {exc}')
+                
+        stop_times_db = []
+        
+        for stop_time in parsed_stop_times:
+            stop_times_db.append(stop_time.getDbModel())
+            
+        return stop_times_db

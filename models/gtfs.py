@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from models.db import Agency, Line, Stop, Schedule
+from models.db import Agency, Line, Stop, Schedule, ScheduleStop
 
 class GtfsModel(BaseModel):
     def getDbModel(self):
@@ -160,6 +160,16 @@ class GtfsStopTime(BaseModel):
     
     # Distancia recorrida en la forma del viaje, debe estar en la misma unidad que la forma
     shape_dist_traveled: float | None = None 
+    
+    def getDbModel(self):
+        return ScheduleStop(
+            gtfs_trip_id=self.trip_id,
+            arrival_time=self.arrival_time,
+            departure_time=self.departure_time,
+            gtfs_stop_id=self.stop_id,
+            stop_sequence=self.stop_sequence,
+            shape_distance_traveled=self.shape_dist_traveled
+        )
     
 class GtfsCalendar(BaseModel):
     """

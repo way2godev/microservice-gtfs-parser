@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from db.connection import Connection
 from utils.log import Logger
+from datetime import datetime
 
 logger = Logger.get_logger()
 
@@ -71,7 +72,10 @@ class Stop(DbModel):
         return stop
     
     def save(self):
-        query = f"INSERT INTO stops (name, description, latitude, longitude, wheelchair_boarding, gtfs_stop_id, gtfs_stop_code, gtfs_location_type, gtfs_stop_timezone, created_at, updated_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())"
+        query = """
+            INSERT INTO 
+                stops (name, description, latitude, longitude, wheelchair_boarding, gtfs_stop_id, gtfs_stop_code, gtfs_location_type, gtfs_stop_timezone, created_at, updated_at) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())"""
         db = Connection.get_cursor()
         db.execute(query, (self.name, self.description, self.latitude, self.longitude, self.wheelchair_boarding, self.gtfs_stop_id, self.gtfs_stop_code, self.gtfs_location_type, self.gtfs_stop_timezone))
         db.connection.commit()
@@ -156,4 +160,45 @@ class Schedule(DbModel):
             self.save_and_update_fk()
         else:
             logger.info(f"Schedule {self.name} already exists in the database")
+               
+class ScheduleStop(DbModel):
+    table_name: str = "schedule_stops"
+    gtfs_stop_id: str
+    arrival_time: str
+    departure_time: str
+    gtfs_trip_id: str
+    shape_distance_traveled: float | None = None
+    stop_sequence: int
+    
+    def get_by_gtfs_id(gtfs_trip_id, gtfs_stop_id, stop_sequence):
+        query = f"SELECT * FROM schedule_stops WHERE stop_id = (SELECT id FROM stops WHERE gtfs_stop_id LIKE '{gtfs_stop_id}') AND schedule_id = (SELECT id FROM schedules WHERE gtfs_trip_id LIKE '{gtfs_trip_id}') AND stop_sequence = {stop_sequence}"
+        db = Connection.get_cursor()
+        db.execute(query)
+        schedule_stop = db.fetchone()
+        db.close()
+        return schedule_stop
+    
+    def save_and_update_fk(self):
         
+        for time in [self.arrival_time, self.departure_time]:
+            if int(str(time).split(":")[0]) >= 24:
+                time = time.replace(str(time).split(":")[0], str(int(str(time).split(":")[0]) - 24))
+        
+        arrival_time = datetime.strptime(self.arrival_time, "%H:%M:%S").time()
+        departure_time = datetime.strptime(self.departure_time, "%H:%M:%S").time()
+        
+        query = f"""
+        INSERT INTO schedule_stops (stop_id, arrival_time, departure_time, schedule_id, shape_distance_traveled, stop_sequence, created_at, updated_at)
+        VALUES ((SELECT id FROM stops WHERE gtfs_stop_id LIKE %s), %s, %s, (SELECT id FROM schedules WHERE gtfs_trip_id LIKE %s), %s, %s, NOW(), NOW())"""
+        db = Connection.get_cursor()
+        db.execute(query, (self.gtfs_stop_id, arrival_time, departure_time, self.gtfs_trip_id, self.shape_distance_traveled, self.stop_sequence))
+        db.connection.commit()
+        db.close()
+        
+    def save_if_not_exists_and_update_fk(self):
+        schedule_stop = ScheduleStop.get_by_gtfs_id(self.gtfs_trip_id, self.gtfs_stop_id, self.stop_sequence)
+        if not schedule_stop:
+            logger.info(f"Saving schedule stop {self.gtfs_stop_id} in schedule {self.gtfs_trip_id}")
+            self.save_and_update_fk()
+        else:
+            logger.info(f"Schedule stop {self.gtfs_stop_id} in schedule {self.gtfs_trip_id} already exists in the database")

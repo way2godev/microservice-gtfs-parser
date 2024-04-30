@@ -1,4 +1,5 @@
 import os
+import time
 import pandas as pd
 from models.parser import DataParser
 from db.connection import Connection
@@ -8,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 FILES_MANDATORY = ['agency', 'routes', 'stops', 'trips', 'stop_times']
 FILES_ALL = ['agency', 'calendar', 'calendar_dates', 'fare_attributes', 'fare_rules', 'feed_info', 'frequencies', 'routes', 'shapes', 'stop_times', 'stops', 'transfers', 'trips']
-MAX_WORKERS = 5
+MAX_WORKERS = 20
 
 logger = Logger.get_logger()
 
@@ -78,7 +79,16 @@ def parse_source_to_db():
     for stop in parsed_stops:
         stop.save_if_not_exists()
     logger.info(f'Parsed {len(parsed_stops)} stops')
-
+    
+    stop_times_raw = pd.read_csv('./data/stop_times.csv')
+    logger.info(f'Found {len(stop_times_raw)} stop times')
+    parsed_stop_times = DataParser.stop_times(stop_times_raw, logger)
+    def save_stop_time(stop_time):
+        stop_time.save_if_not_exists_and_update_fk()
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        executor.map(save_stop_time, parsed_stop_times)
+    logger.info(f'Parsed {len(parsed_stop_times)} stop times')
+    
 def cleanup_data():
     """
     Función que limpia los ficheros GTFS
@@ -92,7 +102,7 @@ def cleanup_data():
     logger.info('Data cleaned up')
     
     
-if __name__ == '__main__':
+def main():
     sources = pd.read_csv('./sources.csv')
     logger.info(f'Found {len(sources)} GTFS data sources')
     
@@ -108,5 +118,13 @@ if __name__ == '__main__':
         parse_source_to_db() 
         cleanup_data()
         
+    logger.info('All sources processed')
     
+if __name__ == '__main__':
+    # Each 48 hours run the main function
+    while True:
+        logger.info('Running main function')
+        main()
+        logger.info('Sleeping for 48 hours')
+        time.sleep(48*60*60)
     

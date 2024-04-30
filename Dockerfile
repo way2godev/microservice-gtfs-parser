@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION=3.12.3
-FROM python:${PYTHON_VERSION}-slim as base
+FROM python:${PYTHON_VERSION}-alpine as base
 
 ENV PYTHONDONTWRITEBYTECODE=1 
 ENV PYTHONUNBUFFERED=1
@@ -18,7 +18,11 @@ RUN adduser \
 
 # Install the dependencies
 COPY requirements.txt . 
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN  apk add --no-cache postgresql-libs && \
+    apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
+    pip3 install --no-cache-dir -r requirements.txt && \
+    apk --purge del .build-deps
 
 # Switch to the non-privileged user to run the application.
 USER appuser
